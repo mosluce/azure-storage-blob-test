@@ -1,0 +1,7 @@
+{
+  "name": "azure-storage-sample",
+  "version": "0.0.1",
+  "dependencies": {
+    "azure-storage": "^0.4.2"
+  }
+}
