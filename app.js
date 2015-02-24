@@ -2,7 +2,7 @@
  * Created by mosluce on 15/2/24.
  */
 var azure = require("azure-storage"), fs = require("fs");
-var blobService = azure.createBlobService('[account]','[key]');
+var blobService = azure.createBlobService('[storage account]','[access key]');
 
 blobService.createContainerIfNotExists("asset", function(err, result, response) {
     if(!err) {
@@ -46,5 +46,15 @@ function download() {
 function del() {
     blobService.deleteBlob("asset", "1487051.gif", function(err, result, response) {
         console.log("Delete file: OK!");
+
+        delContainer();
+    });
+}
+
+function delContainer() {
+    blobService.deleteContainer("asset", function(err, result, response) {
+        if(!err) {
+            console.log("Test: OK!");
+        }
     });
 }
